@@ -3,52 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Скачать чит</title>
+    <title>CatLean — Free Utility Mod</title>
     <style>
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f0f0f;
-            color: #fff;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0b0e17;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 20px 60px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 100vh;
-            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
-        .box {
-            width: 90%;
-            max-width: 400px;
-            background: #1a1a1a;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px #00000088;
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #bb86fc;
         }
-        h1 {
-            margin-top: 0;
-            font-size: 24px;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            background: #4CAF50;
-            border-radius: 8px;
+
+        nav a {
+            color: white;
             text-decoration: none;
-            color: #fff;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #bb86fc;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            background: linear-gradient(to bottom, rgba(11,14,23,0.8), #0b0e17),
+                        url('https://i.imgur.com/3ecK1jM.jpg') center/cover') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: linear-gradient(transparent, #0b0e17);
+        }
+
+        .left {
+            max-width: 600px;
+            margin-top: 180px;
+        }
+
+        .beta-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(187, 134, 252, 0.2);
+            color: #bb86fc;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .beta-badge img {
+            width: 20px;
+            margin-right: 8px;
+        }
+
+        h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #bb86fc;
+        }
+
+        .download-btn {
+            background: #bb86fc;
+            color: black;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 12px;
             font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 15px;
             transition: 0.3s;
         }
-        .btn:hover {
-            background: #45a049;
+
+        .download-btn:hover {
+            background: #cfbaf9;
+            transform: translateY(-3px);
+        }
+
+        .version {
+            background: rgba(255,255,255,0.1);
+            padding: 16px 24px;
+            border-radius: 12px;
+            display: inline-block;
+            font-family: monospace;
+        }
+
+        .warning {
+            color: #ff6b6b;
+            margin: 30px 0;
+            font-weight: 500;
+        }
+
+        .suitable {
+            font-size: 36px;
+            margin: 50px 0 30px;
+        }
+
+        .servers {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .server {
+            background: rgba(255,255,255,0.05);
+            padding: 12px 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .server img {
+            width: 32px;
+        }
+
+        .floating-menu {
+            position: absolute;
+            right: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            background: url('https://i.imgur.com/3kP1oQv.png') no-repeat center;
+            background-size: contain;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        .bottom-text {
+            text-align: center;
+            font-size: 42px;
+            padding: 100px 0;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1100px) {
+            .floating-menu {
+                display: none;
+            }
+            .hero {
+                justify-content: center;
+                text-align: center;
+            }
+            .left {
+                margin-top: 150px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>Скачать чит</h1>
-        <p>Нажми на кнопку ниже, чтобы скачать чит.</p>
-        <a class="btn" href="download/cheat.zip" download>Скачать</a>
-    </div>
+
+    <header>
+        <div class="logo">CATLEAN</div>
+        <nav>
+            <a href="#">Guides</a>
+            <a href="#">Discord</a>
+            <a href="#">Gitverse</a>
+            <a href="#">Donate</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="left">
+            <div class="beta-badge">
+                <img src="https://img.icons8.com/fluency/48/star.png" alt="star">
+                Open beta test
+            </div>
+
+            <h1>Introducing<br><span class="highlight">free utility mod</span></h1>
+
+            <div style="margin: 40px 0;">
+                <button class="download-btn">Download</button>
+                <span class="version">1.21.9 | 21.10</span>
+            </div>
+
+            <p class="warning">Fabric language kotlin and Fabric api are required!</p>
+
+            <p class="suitable">Suitable for</p>
+
+            <div class="servers" style="margin-top: 20px;">
+                <div class="server">
+                    <img src="https://i.imgur.com/3Qe9X5p.png" alt="2b2t">
+                    <span>2b2t</span>
+                </div>
+                <div class="server">
+                    <img src="https://i.imgur.com/JQzs8iG.png" alt="Constantiam">
+                    <span>CC</span>
+                </div>
+                <div class="server">
+                    <img src="https://i.imgur.com/3fG9Y7v.png" alt="Future">
+                    <span>FG</span>
+                </div>
+                <div class="server">
+                    <img src="https://i.imgur.com/8kL2p4X.png" alt="TNT Land">
+                    <span>TNT Land</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-menu"></div>
+    </section>
+
+    <div class="bottom-text">Choose your gameplay</div>
+
 </body>
 </html>
